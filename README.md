@@ -68,8 +68,9 @@ Then run the Spring Boot app from your IDE or via:
 The app connects to MongoDB using the following settings in `application.properties`:
 
 ```properties
-spring.data.mongodb.uri=mongodb://taskuser:taskpassword@localhost:27017/taskdb?authSource=taskdb
-spring.data.mongodb.database=taskdb
+spring.application.name=task-management-api
+spring.mongodb.uri=${MONGODB_URI:mongodb://taskuser:taskpassword@localhost:27017/taskdb?authSource=taskdb}
+spring.jackson.default-property-inclusion=NON_NULL
 ```
 
 When running via Docker Compose, the app container uses the internal service name:
