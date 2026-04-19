@@ -1,11 +1,10 @@
 package com.taskmanager.api.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.validation.constraints.NotNull;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import tools.jackson.databind.annotation.JsonDeserialize;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +13,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(collation = "tasks")
+@Document(collection = "tasks")
 public class Task {
 
     @Id
@@ -27,6 +26,7 @@ public class Task {
     private TaskStatus status;
 
     @Builder.Default
+    @JsonDeserialize(as = ArrayList.class)
     private List<Task> subTasks = new ArrayList<>();
 
 }

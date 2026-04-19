@@ -22,8 +22,7 @@ services:
     ports:
       - "8080:8080"
     environment:
-      SPRING_DATA_MONGODB_URI: mongodb://taskuser:taskpassword@mongodb:27017/taskdb?authSource=taskdb
-      SPRING_DATA_MONGODB_DATABASE: taskdb
+      - "MONGODB_URI=mongodb://taskuser:taskpassword@mongodb:27017/taskdb?authSource=taskdb"
     depends_on:
       - mongodb
     networks:
