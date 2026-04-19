@@ -3,7 +3,6 @@ package com.taskmanager.api.controller;
 import com.taskmanager.api.model.Task;
 import com.taskmanager.api.model.TaskStatus;
 import com.taskmanager.api.service.TaskService;
-import com.taskmanager.api.service.TaskServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -11,7 +10,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
-@RequestMapping("/tasks")
+@RequestMapping("/api/v1//tasks")
 @RequiredArgsConstructor
 public class TaskController {
 
