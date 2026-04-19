@@ -59,7 +59,7 @@ public class TaskServiceImplTest {
     }
 
     @Test
-    void createTask_shouldSetStatusToDodoIfNoneProvided() {
+    void createTask_shouldSetStatusToTodoIfNoneProvided() {
         Task noStatusTask = Task.builder()
                 .title("No status task")
                 .description("No status description")
@@ -148,7 +148,7 @@ public class TaskServiceImplTest {
         when(taskRepository.findById("nonexistentId"))
                 .thenReturn(Mono.empty());
 
-        StepVerifier.create(taskService.getTaskById("nonexistentId"))
+        StepVerifier.create(taskService.updateTask("nonexistentId", task))
                 .expectError(TaskNotFoundException.class)
                 .verify();
     }
@@ -190,7 +190,7 @@ public class TaskServiceImplTest {
         when(taskRepository.findById("nonexistentId"))
                 .thenReturn(Mono.empty());
 
-        StepVerifier.create(taskService.getTaskById("nonexistentId"))
+        StepVerifier.create(taskService.deleteTask("nonexistentId"))
                 .expectError(TaskNotFoundException.class)
                 .verify();
     }

@@ -46,7 +46,7 @@ public class TaskController {
         return taskService.deleteTask(id);
     }
 
-    @DeleteMapping("{id}/subtasks/{subtaskIndex}")
+    @DeleteMapping("/{id}/subtasks/{subtaskIndex}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public Mono<Void> deleteSubTask(@PathVariable String id, @PathVariable int subtaskIndex) {
         return taskService.deleteSubTask(id, subtaskIndex);
